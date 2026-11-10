@@ -1,0 +1,18 @@
+mutation ReportAd {
+  reportAd {
+    id
+    timestamp
+    clientIp
+    resolved
+  }
+}
+
+query UnresolvedReports {
+  unresolvedReports {
+    id
+    timestamp
+    clientIp
+    resolved
+    resolutionNote
+  }
+}

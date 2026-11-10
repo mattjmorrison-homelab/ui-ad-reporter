@@ -1,0 +1,18 @@
+scalar DateTime
+
+type Report {
+  id: ID!
+  timestamp: DateTime!
+  clientIp: String!
+  resolved: Boolean!
+  resolutionNote: String
+}
+
+type Query {
+  unresolvedReports(since: DateTime): [Report!]!
+}
+
+type Mutation {
+  reportAd: Report!
+  resolveReport(id: ID!, resolutionNote: String): Report!
+}
