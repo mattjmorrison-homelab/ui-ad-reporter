@@ -7,7 +7,7 @@ function UnresolvedPage() {
   const { data, loading, error, refetch } = useUnresolvedReportsQuery();
 
   // Newest first -- display order, not something the query guarantees.
-  const reports = [...(data?.unresolvedReports ?? [])].sort((a, b) =>
+  const reports = [...(data?.ad?.unresolved ?? [])].sort((a, b) =>
     b.timestamp.localeCompare(a.timestamp),
   );
 

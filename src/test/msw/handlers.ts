@@ -30,9 +30,9 @@ export const DEFAULT_UNRESOLVED_REPORTS = [
 // Default happy-path handlers. Individual tests override these with
 // `server.use(...)` to exercise loading/error paths.
 export const handlers = [
-  api.mutation('ReportAd', () => HttpResponse.json({ data: { reportAd: DEFAULT_REPORT } })),
+  api.mutation('ReportAd', () => HttpResponse.json({ data: { ad: { reportAd: DEFAULT_REPORT } } })),
   api.query('UnresolvedReports', () =>
-    HttpResponse.json({ data: { unresolvedReports: DEFAULT_UNRESOLVED_REPORTS } }),
+    HttpResponse.json({ data: { ad: { unresolved: DEFAULT_UNRESOLVED_REPORTS } } }),
   ),
 ];
 

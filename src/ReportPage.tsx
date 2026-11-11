@@ -16,7 +16,7 @@ function ReportPage() {
       const result = await reportAd();
       // The mutation's return value is the source of truth that the report
       // actually landed, not an assumption that the request we sent "worked".
-      if (result.data?.reportAd) {
+      if (result.data?.ad?.reportAd) {
         setConfirmation('Reported. Thanks, we’ll look into it.');
       } else {
         setError('The report was not confirmed. Please try again.');
