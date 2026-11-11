@@ -31,7 +31,7 @@ describe('ReportPage', () => {
     server.use(
       api.mutation('ReportAd', async () => {
         await delay(50);
-        return HttpResponse.json({ data: { reportAd: DEFAULT_REPORT } });
+        return HttpResponse.json({ data: { ad: { reportAd: DEFAULT_REPORT } } });
       }),
     );
 
@@ -63,7 +63,9 @@ describe('ReportPage', () => {
   });
 
   it('shows a visible error when the mutation does not confirm the report', async () => {
-    server.use(api.mutation('ReportAd', () => HttpResponse.json({ data: { reportAd: null } })));
+    server.use(
+      api.mutation('ReportAd', () => HttpResponse.json({ data: { ad: { reportAd: null } } })),
+    );
 
     const user = userEvent.setup();
     renderPage();
@@ -89,7 +91,9 @@ describe('ReportPage', () => {
     await screen.findByRole('alert');
 
     server.use(
-      api.mutation('ReportAd', () => HttpResponse.json({ data: { reportAd: DEFAULT_REPORT } })),
+      api.mutation('ReportAd', () =>
+        HttpResponse.json({ data: { ad: { reportAd: DEFAULT_REPORT } } }),
+      ),
     );
     await user.click(button);
 
