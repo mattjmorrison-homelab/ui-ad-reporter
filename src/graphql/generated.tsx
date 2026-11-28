@@ -8,21 +8,23 @@ const defaultOptions = {} as const;
 export type ReportAdMutationVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ReportAdMutation = { reportAd: { id: string, timestamp: string, clientIp: string, resolved: boolean } };
+export type ReportAdMutation = { ad: { reportAd: { id: string, timestamp: string, clientIp: string, resolved: boolean } } };
 
 export type UnresolvedReportsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UnresolvedReportsQuery = { unresolvedReports: Array<{ id: string, timestamp: string, clientIp: string, resolved: boolean, resolutionNote: string | null }> };
+export type UnresolvedReportsQuery = { ad: { unresolved: Array<{ id: string, timestamp: string, clientIp: string, resolved: boolean, resolutionNote: string | null }> } };
 
 
 export const ReportAdDocument = gql`
     mutation ReportAd {
-  reportAd {
-    id
-    timestamp
-    clientIp
-    resolved
+  ad {
+    reportAd {
+      id
+      timestamp
+      clientIp
+      resolved
+    }
   }
 }
     `;
@@ -53,12 +55,14 @@ export type ReportAdMutationResult = Apollo.MutationResult<ReportAdMutation>;
 export type ReportAdMutationOptions = Apollo.BaseMutationOptions<ReportAdMutation, ReportAdMutationVariables>;
 export const UnresolvedReportsDocument = gql`
     query UnresolvedReports {
-  unresolvedReports {
-    id
-    timestamp
-    clientIp
-    resolved
-    resolutionNote
+  ad {
+    unresolved {
+      id
+      timestamp
+      clientIp
+      resolved
+      resolutionNote
+    }
   }
 }
     `;

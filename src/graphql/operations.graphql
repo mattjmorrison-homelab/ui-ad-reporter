@@ -1,18 +1,22 @@
 mutation ReportAd {
-  reportAd {
-    id
-    timestamp
-    clientIp
-    resolved
+  ad {
+    reportAd {
+      id
+      timestamp
+      clientIp
+      resolved
+    }
   }
 }
 
 query UnresolvedReports {
-  unresolvedReports {
-    id
-    timestamp
-    clientIp
-    resolved
-    resolutionNote
+  ad {
+    unresolved {
+      id
+      timestamp
+      clientIp
+      resolved
+      resolutionNote
+    }
   }
 }

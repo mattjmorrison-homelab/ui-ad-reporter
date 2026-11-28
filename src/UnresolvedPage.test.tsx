@@ -32,7 +32,7 @@ describe('UnresolvedPage', () => {
 
   it('shows an empty state when there are no unresolved reports', async () => {
     server.use(
-      api.query('UnresolvedReports', () => HttpResponse.json({ data: { unresolvedReports: [] } })),
+      api.query('UnresolvedReports', () => HttpResponse.json({ data: { ad: { unresolved: [] } } })),
     );
 
     renderPage();
@@ -57,7 +57,7 @@ describe('UnresolvedPage', () => {
 
     server.use(
       api.query('UnresolvedReports', () =>
-        HttpResponse.json({ data: { unresolvedReports: DEFAULT_UNRESOLVED_REPORTS } }),
+        HttpResponse.json({ data: { ad: { unresolved: DEFAULT_UNRESOLVED_REPORTS } } }),
       ),
     );
     await user.click(screen.getByRole('button', { name: /retry/i }));

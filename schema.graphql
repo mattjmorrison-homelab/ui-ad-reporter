@@ -9,10 +9,19 @@ type Report {
 }
 
 type Query {
-  unresolvedReports(since: DateTime): [Report!]!
+  ad: AdQuery!
+}
+
+type AdQuery {
+  unresolved(since: DateTime): [Report!]!
 }
 
 type Mutation {
+  ad: AdMutation!
+}
+
+type AdMutation {
   reportAd: Report!
-  resolveReport(id: ID!, resolutionNote: String): Report!
+  resolve(id: ID!, resolutionNote: String): Report!
+  recordCandidateDomains(id: ID!, domains: [String!]!): Report!
 }

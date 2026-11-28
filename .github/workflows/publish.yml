@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Promote the PR's already-built image to the deployed tag
-        uses: mattjmorrison-homelab/actions-k8s@15aea08ba0b53348f3e5ae7c0408dade247eff35 # main
+        uses: mattjmorrison-homelab/actions-k8s@5ffa5148e76ca7e354336f3e50c0a4eb01b87ebf # main
         with:
           service-account: ui-ad-reporter-job
           image: gcr.io/go-containerregistry/crane@sha256:1f968817b95790bed063f71175aa6b8ff879fa17064020415f3e18bb6e6a36e1
@@ -29,7 +29,7 @@ jobs:
           CI_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
 
       - name: Smoke-test the deployed commit
-        uses: mattjmorrison-homelab/actions-k8s@15aea08ba0b53348f3e5ae7c0408dade247eff35 # main
+        uses: mattjmorrison-homelab/actions-k8s@5ffa5148e76ca7e354336f3e50c0a4eb01b87ebf # main
         with:
           service-account: ui-ad-reporter-job
           image: mcr.microsoft.com/playwright@sha256:5b8f294aff9041b7191c34a4bab3ac270157a28774d4b0660e9743297b697e48
